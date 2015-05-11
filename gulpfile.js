@@ -4,7 +4,7 @@ var gitWatch = require('gulp-git-watch');
 gulp.task('git-watch', function() {
     gitWatch({
         gitPull: ['git', 'pull', 'origin', 'master'],
-        //forceHead: true
+        forceHead: true
     })
         .on('check', function() {
             console.log('CHECK!');
