@@ -1,0 +1,14 @@
+apache:
+  image: agualbbus/wp_node
+  ports:
+   - "3000:80"
+  #command: /bin/bash -c 'cd /app/ && wp core install --url="localhost:3000" --title="wp-gulp" --admin_user="admin" --admin_password="admin" --admin_email="ada@asd.com" --allow-root && wp theme activate wp-gulp --allow-root'
+  volumes:
+   - .:/app
+  #command: /bin/bash -c 'cd /var/www && python manage.py runserver 0.0.0.0:8000'
+#search:
+#  build: docker-compose/solr
+#  ports:
+#   - "1980:1980"
+#   - "9300:9300"
+
