@@ -4,9 +4,9 @@ var git = require('gulp-git');
 
 
 gulp.task('fetch', function(){
-  git.fetch('origin', '', {args: ''}, function (err) {
-    if (err) throw err;
-  });
+    return exec('git fetch').then(function(stdout){
+
+    });
 });
  
 
@@ -30,10 +30,5 @@ gulp.task('merge',['fetch'], function() {
         });
 
     })
-
-
-//    head=exec('git rev-list HEAD -n 1', function (err, stdout, stderr){
-//       return  stdout.trim();
-//    });
-//    console.log(head)
 });
+
