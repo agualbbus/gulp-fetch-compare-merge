@@ -1,15 +1,27 @@
+var exec = require('exec-chainable');
 var gulp = require('gulp');
-var gitWatch = require('gulp-git-watch');
+var git = require('gulp-git');
 
-gulp.task('git-watch', function() {
-    gitWatch({
-        gitPull: ['git', 'pull', 'origin', 'master'],
-        forceHead: true
-    })
-        .on('check', function() {
-            console.log('CHECK!');
+var head={};
+gulp.task('head', function() {
+    exec('git rev-list master -n 1').then(function (stdout) {
+        head.local=stdout;
+        exec('git rev-list origin/master -n 1').then(function(stdout){
+            head.origin=stdout;
         })
-        .on('change', function(newHash, oldHash) {
-            console.log('CHANGES! FROM', oldHash, '->', newHash);
+        .done(function (stdout) {
+              if (head.origin!==head.local){
+                  git.merge('origin/master', function (err) {
+                    if (err) throw err;
+                  });
+              }
         });
+
+    })
+
+
+//    head=exec('git rev-list HEAD -n 1', function (err, stdout, stderr){
+//       return  stdout.trim();
+//    });
+//    console.log(head)
 });
