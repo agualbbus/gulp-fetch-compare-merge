@@ -1,5 +1,5 @@
 {
-  "name": "gulpwatch",
+  "name": "Gulp-git-fetch-compare-merge-build ",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,12 +9,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-git-watch": "^0.1.0"
+    "gulp": "^3.8.11"
   },
   "dependencies": {
     "exec-chainable": "0.0.3",
     "gulp-exec": "^2.1.1",
-    "gulp-git": "^1.2.4"
+    "gulp-git": "^1.2.4",
+    "q": "^1.4.1"
   }
 }
